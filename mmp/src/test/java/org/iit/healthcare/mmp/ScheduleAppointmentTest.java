@@ -22,6 +22,7 @@ public class ScheduleAppointmentTest extends BaseClass {
 		Assert.assertEquals(actualHMap.get("time"), "10Am");
 		Assert.assertEquals(actualHMap.get("doctor"),"Beth" );
 		Assert.assertEquals(actualHMap.get("sym"), "Fever");
+		System.out.println("Executed the tests successfully");
 
 	}
 
