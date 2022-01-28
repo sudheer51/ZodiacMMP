@@ -25,6 +25,11 @@ public class ScheduleAppointmentTest extends BaseClass {
 		System.out.println("Executed the tests successfully");
 
 	}
+	@Test
+	public void a1()
+	{
+		
+	}
 
 
 
