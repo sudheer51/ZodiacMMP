@@ -25,24 +25,6 @@ public class ScheduleAppointmentTest extends BaseClass {
 		System.out.println("Executed the tests successfully");
 
 	}
-	@Test
-	public void a1()
-	{
-		
-	}
- 
-	public void validateTitle()
-	{
-		
-	}
-	@Test
-	public void validateMessage()
- 
-	{
-		
-	}
-
-
 
 
 

@@ -8,7 +8,7 @@ public class HomePage {
 	public HomePage(WebDriver driver)
 	{
 		this.driver = driver;
-	    if (!driver.getTitle().equals("Home Page of logged in user")) {
+	    if (!driver.getTitle().equals("home")) {
 	      throw new IllegalStateException("This is not Home Page of logged in user," +
 	            " current page is: " + driver.getCurrentUrl());
 	    }

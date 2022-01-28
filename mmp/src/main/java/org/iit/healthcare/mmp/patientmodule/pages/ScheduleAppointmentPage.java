@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 public class ScheduleAppointmentPage {
 
 	protected WebDriver driver;
-	private String doctorName;
+	private String drName;
 	private By newAppointmentButton = By.cssSelector( "input[value='Create new appointment']");
-	private By selectDoctor = By.xpath("//h4[normalize-space()='Dr."+doctorName+"']/ancestor::ul/following-sibling::button" );
+	private By selectDoctor = By.xpath("//h4[normalize-space()='Dr."+drName+"']/ancestor::ul/following-sibling::button" );
 	private By datePickerId = By.id("datepicker");
 	private By yearDatePicker = By.cssSelector(".ui-datepicker-year");
 	private By monthDatePicker = By.cssSelector(".ui-datepicker-month");
@@ -29,6 +29,7 @@ public class ScheduleAppointmentPage {
 	public ScheduleAppointmentPage(WebDriver driver)
 	{
 		this.driver = driver;
+		 
 	}
 	
 	public HashMap<String, String> scheduleAppointment(String doctorName,String date, String time,String sym)
@@ -38,8 +39,10 @@ public class ScheduleAppointmentPage {
 		   		 
 				//Create New Appointment button
 				driver.findElement(newAppointmentButton).click();
+				
 				//Select the doctor
-				this.doctorName=doctorName;
+				drName=doctorName;
+				
 				driver.findElement(selectDoctor).click();
 				//Switch to a frame
 				driver.switchTo().frame("myframe");		
