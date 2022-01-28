@@ -26,12 +26,18 @@ public class ScheduleAppointmentTest extends BaseClass {
 
 	}
 	@Test
+	public void a1()
+	{
+		
+	}
+ 
 	public void validateTitle()
 	{
 		
 	}
 	@Test
 	public void validateMessage()
+ 
 	{
 		
 	}
