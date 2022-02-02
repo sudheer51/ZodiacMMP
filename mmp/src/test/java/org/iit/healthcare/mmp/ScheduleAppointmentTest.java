@@ -26,6 +26,11 @@ public class ScheduleAppointmentTest extends BaseClass {
 
 	}
 
+     @Test
+     public void testQA3()
+     {
 
+
+     }
 
 }
