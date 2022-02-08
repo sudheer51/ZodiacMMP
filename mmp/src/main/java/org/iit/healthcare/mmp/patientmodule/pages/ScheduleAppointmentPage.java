@@ -1,6 +1,7 @@
 package org.iit.healthcare.mmp.patientmodule.pages;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,17 +10,35 @@ import org.openqa.selenium.support.ui.Select;
 public class ScheduleAppointmentPage {
 
 	protected WebDriver driver;
-	private String drName;
+	//***commented by Rakhi*****
+	//private String drName;
 	private By newAppointmentButton = By.cssSelector( "input[value='Create new appointment']");
-	private By selectDoctor = By.xpath("//h4[normalize-space()='Dr."+drName+"']/ancestor::ul/following-sibling::button" );
+	//*****added by rakhi*****
+	//private By selectDoctor = By.xpath("//h4[normalize-space()='Dr."+drName+"']/ancestor::ul/following-sibling::button" );
+	 private By selectDoctor=By.xpath("//tbody/tr/td[1]/ul[1]/li[1]");
+	
+	//*****added by rakhi*****
+	private By bookappointment =By.xpath( "//tbody/tr/td[1]/button[1]");
+	
 	private By datePickerId = By.id("datepicker");
 	private By yearDatePicker = By.cssSelector(".ui-datepicker-year");
 	private By monthDatePicker = By.cssSelector(".ui-datepicker-month");
 	private By arrowDatePicker = By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']");
 	private By timeID = By.id("time");
-	private By continueButton =  By.id("ChangeHeatName") ;
-	private By symptomsID =  By.id("sym");
-	private By submitButton = By.cssSelector("input[value='Submit']");
+	
+	//private By continueButton =  By.id("ChangeHeatName") ;
+	
+	// private By continueButton=By.xpath("//button[@id='ChangeHeatName']");
+	 private By continueButton=By.xpath("//button[text()='Continue']");
+	 
+	
+	//private By symptomsID =  By.id("sym");
+	//****added by Rakhi
+	 
+	private By symptomsID=By.xpath("/html[1]/body[1]/button[1]");
+	
+	//private By submitButton = By.cssSelector("input[value='Submit']");
+	private By submitButton = By.cssSelector("input[type='submit']");
 	private By actualDateXpath = By.xpath("//table[@class='table']/tbody/tr[1]/td[1]");
 	private By actualTimeXpath = By.xpath("//table[@class='table']/tbody/tr[1]/td[2]");
 	private By actualAppointmentXpath = By.xpath("//table[@class='table']/tbody/tr[1]/td[3]");
@@ -41,11 +60,21 @@ public class ScheduleAppointmentPage {
 				driver.findElement(newAppointmentButton).click();
 				
 				//Select the doctor
-				drName=doctorName;
+				
+				//***commented By Rakhi
+				//drName=doctorName;
 				
 				driver.findElement(selectDoctor).click();
+				
+				//*****added by rakhi*****
+				//book appointment
+				
+				driver.findElement(bookappointment).click();
+				
 				//Switch to a frame
-				driver.switchTo().frame("myframe");		
+				driver.switchTo().frame("myframe");
+				
+				    
 				//Datepicker
 				driver.findElement(datePickerId).click();
 			
@@ -72,9 +101,10 @@ public class ScheduleAppointmentPage {
 				driver.findElement(By.linkText(expDay)).click();
 				Select timeSelect = new Select(driver.findElement(timeID));
 				timeSelect.selectByVisibleText(time);
+				
 				driver.findElement(continueButton).click();
-				driver.findElement(symptomsID).sendKeys(sym);
-				driver.findElement(submitButton).click();
+			    driver.findElement(symptomsID).sendKeys(sym);
+			    driver.findElement(submitButton).click();
 				String actualDate = driver.findElement(actualDateXpath).getText().trim();
 				String actualTime = driver.findElement(actualTimeXpath).getText().trim();
 				String actualAppointment = driver.findElement(actualAppointmentXpath).getText().trim();
@@ -85,5 +115,7 @@ public class ScheduleAppointmentPage {
 				hMap.put("sym",  actualAppointment);
 				hMap.put("doctor",  actualDoctor);
 				return hMap;
+				
 	}
+	      
 }
