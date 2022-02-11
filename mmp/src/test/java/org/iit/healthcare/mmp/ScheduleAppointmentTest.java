@@ -2,7 +2,6 @@ package org.iit.healthcare.mmp;
 import java.util.HashMap;
 
 import org.iit.healthcare.mmp.patientmodule.pages.HomePage;
-import org.iit.healthcare.mmp.patientmodule.pages.LoginPage;
 import org.iit.healthcare.mmp.patientmodule.pages.ScheduleAppointmentPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
