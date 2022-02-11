@@ -15,6 +15,6 @@ public class ProfilePage {
 	public String getPatientName()
 	{
 		 
-		 return driver.findElement(By.id("fname")).getText();
+		 return driver.findElement(By.id("fname")).getAttribute("value");
 	}
 }

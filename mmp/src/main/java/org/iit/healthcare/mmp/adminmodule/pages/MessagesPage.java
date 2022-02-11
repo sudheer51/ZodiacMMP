@@ -16,11 +16,10 @@ public class MessagesPage {
 	{
 
 		HashMap<String,String> mHMap = new HashMap<String,String>();
-		driver.findElement(By.xpath("")).getText();
 		String 	patientName = driver.findElement(By.xpath("//table[@class='table']/tbody/tr[2]/td[1]")).getText().trim();
 		String subject = driver.findElement(By.xpath("//table[@class='table']/tbody/tr[2]/td[2]")).getText().trim();
-		String date = 	driver.findElement(By.xpath("//table[@class='table']/tbody/tr[2]/td[3]")).getText().trim();
-		String message=	driver.findElement(By.xpath("//table[@class='table']/tbody/tr[3]/td[1]")).getText().trim();
+		String date = 	driver.findElement(By.xpath("//td[text()='Date']/parent::tr/following-sibling::tr[1]/td[3]")).getText().trim();
+		String message=	driver.findElement(By.xpath("//table[@class='table']/tbody/tr[3]/td[2]")).getText().trim();
 		mHMap.put("patientName",patientName);
 		mHMap.put("subject",subject);
 		mHMap.put("date",date);

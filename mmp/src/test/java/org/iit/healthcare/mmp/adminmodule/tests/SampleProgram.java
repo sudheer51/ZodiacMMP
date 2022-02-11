@@ -22,9 +22,8 @@ public class SampleProgram 	extends BaseClass {
 		hPage.navigateToAModule("Profile");
 		driver.findElement(By.id("Ebtn")).click();
 		
-		System.out.println(driver.findElement(By.cssSelector("#fname")).getText());
-		System.out.println(driver.findElement(By.xpath("//table[@class='table']/tbody/tr/td/input[@id='fname']")).getText());
-		System.out.println(driver.findElement(By.cssSelector("#fname")).getText());
+		System.out.println(driver.findElement(By.cssSelector("#fname")).getAttribute("value"));
+		 
 		
 	}
 		 
