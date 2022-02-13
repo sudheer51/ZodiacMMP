@@ -1,6 +1,10 @@
-package org.iit.healthcare.mmp;
+package org.iit.healthcare.mmp.patientmodule.tests;
 import java.util.HashMap;
 
+import org.iit.healthcare.mmp.AppLibrary;
+import org.iit.healthcare.mmp.BaseClass;
+import org.iit.healthcare.mmp.LoginPage;
+import org.iit.healthcare.mmp.MMPLibrary;
 import org.iit.healthcare.mmp.patientmodule.pages.HomePage;
 import org.iit.healthcare.mmp.patientmodule.pages.ScheduleAppointmentPage;
 import org.testng.Assert;
@@ -10,8 +14,10 @@ public class ScheduleAppointmentTest extends BaseClass {
 	@Test
 	public void validateScheduleAppointment()
 	{
+		MMPLibrary lib=new MMPLibrary(driver);
+		lib.launchBrowser(pro.getProperty("patientURL"));
 		LoginPage lPage  = new LoginPage(driver);
-		HomePage hPage = lPage.login(pro.getProperty("username"),pro.getProperty("password"));
+		HomePage hPage = lPage.login(pro.getProperty("patientusername"),pro.getProperty("patientpassword"));
 		hPage.navigateToAModule("Schedule Appointment");
 		String date= AppLibrary.getFutureDate(15,"dd/MMMM/YYYY");
 		String  expectedDateFormat =  AppLibrary.getFutureDate(15,"MM/dd/YYYY");
@@ -25,11 +31,4 @@ public class ScheduleAppointmentTest extends BaseClass {
 
 	}
 
-     @Test
-     public void testQA3()
-     {
-
-
-     }
-
-}
+    }

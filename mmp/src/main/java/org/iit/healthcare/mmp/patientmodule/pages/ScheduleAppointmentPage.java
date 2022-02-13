@@ -43,7 +43,8 @@ public class ScheduleAppointmentPage {
 				//Select the doctor
 				drName=doctorName;
 				
-				driver.findElement(selectDoctor).click();
+				//driver.findElement(selectDoctor).click();
+				driver.findElement(By.xpath("//h4[normalize-space()='Dr."+drName+"']/ancestor::ul/following-sibling::button" )).click();
 				//Switch to a frame
 				driver.switchTo().frame("myframe");		
 				//Datepicker
